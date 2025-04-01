@@ -1,9 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 
 function WhatError(){
     return (
-    <div> </div>
+    <div>
+        <div>
+            <div>
+                <p>Responda o código abaixo</p>
+                <input type="text"></input>
+            </div>
+            <div>
+                <div id = "quadrado"></div>
+            </div>
+        </div>
+    </div>
     );
 }
 

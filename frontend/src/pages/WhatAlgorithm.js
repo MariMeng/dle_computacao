@@ -1,9 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 
 function WhatAlgorithm(){
     return (
-    <div> </div>
+        <div> 
+        <div>
+            <div>
+                <p>Acerte o Algoritmo do dia</p>
+                <input type="text"></input>
+            </div>
+            <div id="certo">
+                <div id="quadrado"></div>
+            </div>
+        </div>
+    </div>
     );
 }
 
