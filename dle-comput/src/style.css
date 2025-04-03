@@ -5,16 +5,17 @@
 }
 
 nav{
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: pink;
 }
 
-guia_quiz_horizontal{
+.guia_quiz_horizontal{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 ul{
@@ -31,19 +32,24 @@ ul li a{
 
 ul li a:hover{
     background-color: pink;
+    
 }
 
 
-
 .div_git{
+    border-radius: 10px;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 50px 20px;
     width: 400px;
     background-color: rgb(112, 219, 219);
 
 }
 
+.div_git img{
+    width: 20px;
+}
 .input{
+    border-radius: 10px;
     margin: 0 auto;
     padding: 10px 20px;
     width: 400px;
@@ -52,6 +58,7 @@ ul li a:hover{
 }
 
 .question{
+    border-radius: 10px;
     padding: 10px 20px;
     width: 400px;
     background-color: aliceblue;
@@ -60,20 +67,133 @@ ul li a:hover{
     margin: 0 auto;
 }
 
-.boxColor{
+.boxColorCorrect{
+    border-radius: 10px;
     margin-top: 10px;
     margin-block-end: 10px;
     width: 100px;
     height: 100px;
-    background-color: plum;
+    background-color: rgb(41, 158, 57);
     padding: 10px 20px;
 
 }
 
-#boxCorrect{
-    background-color: green;
+.boxColorIncorrect{
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-block-end: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(201, 83, 67);
+    padding: 10px 20px;
+
 }
 
-#boxIncorrect{
-    background-color: red;
+.guia_quiz_horizontal img{
+    width: 70px;
+    margin-left: 30px;
+    border-radius: 100px;
+    margin-top: 20px;
+    margin-block-end: 20px;
 }
+
+.div_resposta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quadros{
+    
+    text-align: center;
+}
+
+.div_imageOfDay{
+    display: flex;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    background-color: brown;
+    justify-content: center;
+}
+
+.div_imageOfDay img{
+    padding: 10px 20px;
+    height: 350px;
+    margin: 0 auto;
+    filter: grayscale(100%) blur(30px);
+    
+}
+
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: antiquewhite;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
