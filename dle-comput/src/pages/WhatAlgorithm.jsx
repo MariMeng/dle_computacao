@@ -2,9 +2,6 @@ import React, {createElement, useState} from "react";
 import "../style.css";
 
 function WhatAlgorithm(){
-
-
-
     const algoritmos = [
         { name: "Bubble Sort", tipo: "Ordenação", grafo: "Não", tempo_execucao: "O(n^2)" },
         { name: "Quick Sort", tipo: "Ordenação", grafo: "Não", tempo_execucao: "O(n log n)" },
@@ -44,9 +41,9 @@ function WhatAlgorithm(){
             <div>
                 <div className="guia_quiz_horizontal">
                     <ul>
-                        <li><a href=""><img src="hamsterMatriz.jpg" alt="algorithm"></img></a></li>
-                        <li><a href=""><img src="hamsterMatriz.jpg" alt="language"></img></a></li>
-                        <li><a href=""><img src="hamsterMatriz.jpg" alt="code"></img></a></li>
+                        <li><a href="http://localhost:3000/quiz-algorithm"><img src="hamsterMatriz.jpg" alt="algorithm"></img></a></li>
+                        <li><a href="http://localhost:3000/quiz-language"><img src="hamsterMatriz.jpg" alt="language"></img></a></li>
+                        <li><a href="http://localhost:3000/quiz-error"><img src="hamsterMatriz.jpg" alt="code"></img></a></li>
                     </ul>
                 </div>
                 <div className="question">
