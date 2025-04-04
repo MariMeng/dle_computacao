@@ -11,10 +11,14 @@ function WhatLanguage(){
         {arquivo: "../logos/Ruby_logo.svg.png", name:"Ruby"}
     ];
     
-    const imageOfDay = images[4];
+    const imageOfDay = images[0];
     const imgFile = imageOfDay.arquivo;
     const [input, setInput] = useState("");
     const [historico, setHistorico] = useState([]);
+
+    const [trys, setTrys] = useState(0);
+    const [blurOn, setBlurOn] = useState(false);
+    const [grayOn, setGrayOn] = useState(false);
 
     const verifyLanguage = function(){
         const elem = images.find(ig => ig.name.toLocaleLowerCase() === input.toLocaleLowerCase())
@@ -25,10 +29,17 @@ function WhatLanguage(){
             if(elem.name === imageOfDay.name){
                 alert("Parabéns");
             }
-            tentativas++;
-            console.log(tentativas);
+            setTrys(prev =>prev+1);
         }
     }
+
+    const styleImage = {
+        filter:
+            `
+            ${grayOn ? "grayscale(0%)" : "grayscale(100%)"}
+            ${blurOn? `blur(${30 - trys * 5}px)` : "blur(30px)"}
+            `
+    };
 
      return (
      <div> 
@@ -50,16 +61,16 @@ function WhatLanguage(){
                  </div>
 
                  <div className="div_imageOfDay">
-                    <img src= {imageOfDay.arquivo} alt="image embassade of any language of programation"></img>
+                    <img src= {imageOfDay.arquivo} alt="image embassade of any language of programation" style={styleImage}/>
                   
                  </div>
                  <div className="botoes">
                     <label className="switch">
-                        <input type="checkbox"></input>
+                        <input type="checkbox" checked={grayOn} onChange={()=> setGrayOn(!grayOn)}></input>
                         <span className="slider round"></span>
                     </label>
                     <label className="switch">
-                        <input type="checkbox"></input>
+                        <input type="checkbox" checked={blurOn} onChange={()=> setBlurOn(!blurOn)}></input>
                         <span className="slider round"></span>
                     </label>
                 </div>
