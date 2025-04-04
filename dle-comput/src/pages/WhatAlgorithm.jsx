@@ -61,11 +61,16 @@ function WhatAlgorithm(){
             <div className="table_answer">
     <div className="div_resposta">
         <table className="quadros">
+            {historico.length > 0 && (
             <thead>
                 <tr>
-        
+                  <th>Nome</th>
+                  <th>Tipo</th>
+                  <th>É grafo</th>
+                  <th>Tempo de Execução</th>
                 </tr>
             </thead>
+            )}
             <tbody>
                 {historico.map((elem, index) => (
                     <tr key={index}>
