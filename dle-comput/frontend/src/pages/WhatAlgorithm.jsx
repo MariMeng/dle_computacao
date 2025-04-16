@@ -67,11 +67,13 @@ function WhatAlgorithm(){
     }
 
     return (
-    <div> 
-            <nav>
-              <p>Ranking</p>
-              <p>Perfil</p>
-            </nav>
+    <div className="fundo"> 
+       <nav className="nav">
+          <img src="logof.png" alt="" />
+          <p><a href="http://localhost:3000/quiz-algorithm">Quiz</a></p>
+          <p><a href="http://localhost:3000/">Login</a></p>
+          <p><a href="http://localhost:3000/profile">Perfil</a></p>
+        </nav>
             <div>
                 <div className="guia_quiz_horizontal">
                     <ul>
@@ -88,9 +90,6 @@ function WhatAlgorithm(){
                 <div className="input">
                 <input type="text" value={input}   onChange={(e) => setInput(e.target.value)} ></input>
                 <button onClick={verifyAnswer}>clique</button>
-
-                
-                {/*  Lista de sugestões */}
                 {suggestions.length > 0 && (
                         <ul className="suggestions-list">
                             {suggestions.map((sug, index) => (
@@ -112,7 +111,7 @@ function WhatAlgorithm(){
                 <tr>
                   <th>Nome</th>
                   <th>Tipo</th>
-                  <th>É grafo</th>
+                  <th>Recursivo</th>
                   <th>Tempo de Execução</th>
                   <th>Tipo de elemento</th>
                 </tr>
