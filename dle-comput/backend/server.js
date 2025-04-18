@@ -1,14 +1,15 @@
-const express = require("express"); 
-const { Pool } = require("pg"); 
+const express = require("express");
+const { Pool } = require("pg");
 const app = express();
 const port = 3001;
-const cors = require("cors"); 
-app.use(cors()); 
+const cors = require("cors");
+app.use(cors());
 
 
+// Rota para obter o "algoritmo do dia"
 app.get("/algorithm-of-the-day", async (req, res) => {
   try {
-    const today = new Date().toISOString().split("T")[0]; // formato YYYY-MM-DD
+    const today = new Date().toISOString().split("T")[0]; 
 
    
     const { rows: todayAlg } = await pool.query(
@@ -20,42 +21,50 @@ app.get("/algorithm-of-the-day", async (req, res) => {
       return res.json(todayAlg[0]);
     }
 
-   
     const { rows: allAlgs } = await pool.query("SELECT * FROM algorithms_structures");
 
-   
+    // Busca os IDs dos algoritmos que já foram definidos como "algoritmo do dia"
     const { rows: usedAlgs } = await pool.query("SELECT algorithm_id FROM algorithm_of_the_day");
 
+   
     const usedIds = usedAlgs.map((row) => row.algorithm_id);
     const unusedAlgs = allAlgs.filter((alg) => !usedIds.includes(alg.id));
+
 
     if (unusedAlgs.length === 0) {
       await pool.query("DELETE FROM algorithm_of_the_day");
       unusedAlgs.push(...allAlgs);
     }
 
+    // Sorteia um algoritmo aleatório dos algoritmos não utilizados
     const sorteado = unusedAlgs[Math.floor(Math.random() * unusedAlgs.length)];
- 
+
+    // Salva o algoritmo sorteado como o "algoritmo do dia" na tabela 'algorithm_of_the_day'
     await pool.query(
       "INSERT INTO algorithm_of_the_day (algorithm_id, date) VALUES ($1, $2)",
       [sorteado.id, today]
     );
 
+
     res.json(sorteado);
   } catch (err) {
+
     console.error(err);
     res.status(500).send("Erro no servidor");
   }
-
 });
 
-
+// Rota para autocomplete de nomes de algoritmos
 app.get("/autocomplete", async (req, res) => {
+
   const { q } = req.query;
+
 
   if (!q) return res.json([]);
 
   try {
+
+    // que começam com a string de consulta (case-insensitive)
     const result = await pool.query(
       `SELECT name FROM algorithms_structures
        WHERE LOWER(name) LIKE $1
@@ -64,20 +73,28 @@ app.get("/autocomplete", async (req, res) => {
       [`${q.toLowerCase()}%`]
     );
 
+  
     const names = result.rows.map(row => row.name);
+  
     res.json(names);
   } catch (err) {
+  
     console.error(err);
     res.status(500).json({ error: "Erro ao buscar dados" });
   }
 });
 
+// Rota para autocomplete de nomes de linguagens
 app.get("/autocomplete-language", async (req, res) => {
+  // Obtém o parâmetro de consulta 'q' da URL
   const { q } = req.query;
 
+  // Se não houver parâmetro 'q', retorna um array JSON vazio
   if (!q) return res.json([]);
 
   try {
+    // Executa uma consulta ao banco de dados para buscar nomes de linguagens
+    // que começam com a string de consulta (case-insensitive)
     const result = await pool.query(
       `SELECT name FROM languages
        WHERE LOWER(name) LIKE $1
@@ -86,9 +103,12 @@ app.get("/autocomplete-language", async (req, res) => {
       [`${q.toLowerCase()}%`]
     );
 
+    // Extrai os nomes das linguagens dos resultados da consulta
     const names = result.rows.map((row) => row.name);
+    // Retorna os nomes como um array JSON
     res.json(names);
   } catch (err) {
+    // Em caso de erro, loga o erro no console e envia uma resposta de erro com status 500
     console.error(err);
     res.status(500).json({ error: "Erro ao buscar dados de linguagem" });
   }
@@ -155,7 +175,7 @@ app.get("/language-of-the-day", async (req, res) => {
 });
 
 
-app.use(express.json()); // <--- Adiciona essa linha para o backend entender JSON
+app.use(express.json()); 
 
 // REGISTRO
 app.post("/register", async (req, res) => {
@@ -194,6 +214,8 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ message: "Erro no login" });
   }
 });
+
+
 app.put("/users/:id", async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
@@ -206,6 +228,7 @@ app.put("/users/:id", async (req, res) => {
     res.status(500).json({ message: "Erro ao atualizar nome" });
   }
 });
+
 app.delete("/users/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -218,3 +241,16 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
+
+app.get("/users", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT name FROM users ORDER BY name ASC");
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Erro ao buscar usuários" });
+  }
+});
