@@ -69,7 +69,7 @@
 .cadastrar {
     width: 100%;
     height: 50px;
-    background-color: #eb15c7;
+    background-color: rgb(92, 230, 235);
     border: none;
     border-radius: 40px;
     cursor: pointer;
@@ -82,7 +82,7 @@
 }
 
 .cadastrar:hover {
-    background-color: #45a049;
+    background-color:  #6069e4;
 }
 
 .register-link {
@@ -101,11 +101,11 @@
     text-decoration: underline;
 }
 
-/* Estilização das mensagens de erro */
+
 .span-required {
     font-size: 12px;
     margin-top: 5px;
-    color: red;
+    color: rgb(255, 0, 0);
     display: none;
     position: absolute;
     left: 0;
@@ -117,7 +117,7 @@
   }
   
   .span-required {
-    color: red;
+    color: rgb(248, 2, 2);
     display: block;
     font-size: 0.8rem;
     margin-top: 4px;

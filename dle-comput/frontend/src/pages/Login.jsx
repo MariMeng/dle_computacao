@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // se estiver usando react-router-dom
+import { useNavigate } from "react-router-dom"; 
 import "../login.css";
 
 export default function Login() {
@@ -34,7 +34,8 @@ export default function Login() {
 
   return (
     <>
-       <nav className="nav">
+    <div className="fundo">
+       <nav>
           <img src="logof.png" alt="" />
           <p><a href="http://localhost:3000/quiz-algorithm">Quiz</a></p>
           <p><a href="http://localhost:3000/">Login</a></p>
@@ -87,6 +88,7 @@ export default function Login() {
           </form>
         </main>
       </div>
+    </div>
     </>
   );
 }

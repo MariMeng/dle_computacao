@@ -1,0 +1,49 @@
+.ranking-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .ranking-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .div_table {
+    overflow-x: auto;
+  }
+  
+  .div_table table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .div_table thead {
+    background-color: #4f46e5; /* azul violeta */
+    color: white;
+  }
+  
+  .div_table th, td {
+    padding: 12px 16px;
+    text-align: left;
+  }
+  
+  .div_table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .div_table tbody tr:hover {
+    background-color: #e0e7ff;
+  }
+  
+  .div_table td {
+    color: #333;
+  }
+  

@@ -61,8 +61,8 @@ function WhatLanguage() {
 
   return (
     <div className="fundo">
-       <nav className="nav">
-          <img src=" " alt="" />
+       <nav>
+          <img src="logof.png" alt="" />
           <p><a href="http://localhost:3000/quiz-algorithm">Quiz</a></p>
           <p><a href="http://localhost:3000/">Login</a></p>
           <p><a href="http://localhost:3000/profile">Perfil</a></p>
@@ -72,7 +72,6 @@ function WhatLanguage() {
         <ul>
           <li><a href="http://localhost:3000/quiz-algorithm"><img src="hamsterMatriz.jpg" alt="algorithm" /></a></li>
           <li><a href="http://localhost:3000/quiz-language"><img src="hamsterMatriz.jpg" alt="language" /></a></li>
-          <li><a href="http://localhost:3000/quiz-error"><img src="hamsterMatriz.jpg" alt="code" /></a></li>
         </ul>
       </div>
 
@@ -108,7 +107,7 @@ function WhatLanguage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <button onClick={verifyLanguage}>Clique</button>
+        <button className="button-Quiz" onClick={verifyLanguage}>Clique</button>
         {suggestions.length > 0 && (
          <ul className="suggestions-list">
             {suggestions.map((sug, index) => (

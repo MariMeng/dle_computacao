@@ -37,9 +37,9 @@ function WhatAlgorithm(){
                 const elem = {
                     name: userAlgorithm.name,
                     tipo: userAlgorithm.category,
-                    grafo: userAlgorithm.recursive ? "Sim" : "Não",
+                    grafo: userAlgorithm.recursive ? "Sim" : "Não", //recursivo
                     tempo_execucao: userAlgorithm.big_o,
-                    item_tipo: userAlgorithm.item_type
+                    item_tipo: userAlgorithm.item_type //se é estrutura algoritmo
                 };
     
                 setHistorico(prev => [...prev, elem]);
@@ -68,7 +68,7 @@ function WhatAlgorithm(){
 
     return (
     <div className="fundo"> 
-       <nav className="nav">
+       <nav>
           <img src="logof.png" alt="" />
           <p><a href="http://localhost:3000/quiz-algorithm">Quiz</a></p>
           <p><a href="http://localhost:3000/">Login</a></p>
@@ -79,7 +79,6 @@ function WhatAlgorithm(){
                     <ul>
                         <li><a href="http://localhost:3000/quiz-algorithm"><img src="hamsterMatriz.jpg" alt="algorithm"></img></a></li>
                         <li><a href="http://localhost:3000/quiz-language"><img src="hamsterMatriz.jpg" alt="language"></img></a></li>
-                        <li><a href="http://localhost:3000/quiz-error"><img src="hamsterMatriz.jpg" alt="code"></img></a></li>
                     </ul>
                 </div>
                 <div className="question">
@@ -89,7 +88,7 @@ function WhatAlgorithm(){
 
                 <div className="input">
                 <input type="text" value={input}   onChange={(e) => setInput(e.target.value)} ></input>
-                <button onClick={verifyAnswer}>clique</button>
+                <button className="button-Quiz"onClick={verifyAnswer}>Enviar</button>
                 {suggestions.length > 0 && (
                         <ul className="suggestions-list">
                             {suggestions.map((sug, index) => (
@@ -132,9 +131,7 @@ function WhatAlgorithm(){
       <td className={elem.tempo_execucao === algorithmofDay.big_o ? "boxColorCorrect" : "boxColorIncorrect"}>
         {elem.tempo_execucao}
       </td>
-      <td className={elem.item_tipo === algorithmofDay.item_type ? "boxColorCorrect" : "boxColorIncorrect"}>
-        {elem.item_tipo}
-      </td>
+      <td className={elem.item_tipo === algorithmofDay.item_type ? "boxColorCorrect" : "boxColorIncorrect"}>{elem.item_tipo} </td>
     </tr>
   ))}
 </tbody>

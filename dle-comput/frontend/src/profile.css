@@ -1,17 +1,11 @@
-
-
 .body_profile{
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f0d7d7;
+  background: white;
 }
 
-.header a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-}
+
 .container_profile {
   
   display: flex;
@@ -25,18 +19,18 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: #ffa07a;
+  
 }
 .profile-info {
   margin-top: 10px;
-  background: #ffdab9;
+  background: #e76c00;
   padding: 8px 15px;
   border-radius: 15px;
   font-size: 16px;
   font-weight: bold;
 }
 .edit-btn {
-  background: #ff69b4;
+  background: #2196F3;
   color: white;
   padding: 8px 15px;
   border: none;
@@ -52,23 +46,24 @@
   margin: 0 auto;
   width: 420px;
   background-color: transparent;
-  border: 2px solid rgb(255, 255, 255, .2);
+  border: 2px solid #2196F3;
   border-radius: 10px;
-  color : #0c0b0b;
+  color : #1b1b1b;
   padding: 30px 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 0 10px #2196F3;
   backdrop-filter: blur(50px);
 }
 
 .div_editButtons button{
+  border: none;
   margin-left: 5px;
   margin-top: 20px;
   border-radius: 20px;
   padding: 10px 20px;
-  background-color: #ff69b4;
+  background-color: #2196F3;
 }
 
 
 .div_editButtons button:hover{
-  background-color: #f1652e;
+  background-color:  #6069e4;
 }

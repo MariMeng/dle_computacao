@@ -24,6 +24,7 @@ export default function Register() {
   const senhaValidate = () => {
     setSenhaErro(senha.length < 8);
   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     nameValidate();
@@ -44,7 +45,7 @@ export default function Register() {
   
         if (response.ok) {
           alert(data.message);
-          // redirecionar, limpar campos, etc.
+      
         } else {
           alert(data.message);
         }
@@ -54,12 +55,9 @@ export default function Register() {
       }
     }
   };
-  
-  
-
   return (
     <>    
-       <nav className="nav">
+       <nav>
           <img src="logof.png" alt="" />
           <p><a href="http://localhost:3000/quiz-algorithm">Quiz</a></p>
           <p><a href="http://localhost:3000/">Login</a></p>

@@ -6,7 +6,7 @@
 }
 
 .fundo{
-  background-color: black;
+  background-color: rgb(240, 236, 236);
 }
 
 nav{
@@ -14,11 +14,31 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #ccc;
+    background-color: rgb(92, 230, 235);
 }
 
 nav img{
     height: 45px;
+}
+
+nav a{
+  text-decoration: none;
+  color: aliceblue;
+  font-style: bold;
+}
+
+.button-Quiz{
+  background-color:  rgb(92, 230, 235);
+  border-radius: 20px;
+  border-color: rgb(141, 141, 207);
+  margin-left: 10px;
+  padding: 5px 20px;
+}
+
+
+.button-Quiz:hover {
+  background-color:  #6069e4;
+  color: #eee;
 }
 
 .guia_quiz_horizontal{
@@ -57,6 +77,7 @@ ul li a:hover{
 .div_git img{
     width: 20px;
 }
+
 .input{
     border-radius: 10px;
     margin: 40px auto;
@@ -64,6 +85,11 @@ ul li a:hover{
     width: 400px;
     background-color: rgb(112, 219, 219);
 
+}
+.input input{
+  border-radius: 10px;
+  padding: 5px 20px;
+  border-color: aquamarine;
 }
 
 .question{
@@ -230,4 +256,6 @@ ul li a:hover{
   .suggestions-list li:hover {
     background-color: #eee;
   }
+ 
+  
   

@@ -8,13 +8,13 @@ export default function Profile() {
   const [isEditing, setIsEditing] = useState(false);
   const [userId, setUserId] = useState(null);
 
-  // Carrega nome e id ao montar
+ 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
       setSavedName(user.name);
       setNewName(user.name);
-      setUserId(user.id); // Salva o ID para editar ou deletar
+      setUserId(user.id); 
     }
   }, []);
 
@@ -66,7 +66,8 @@ export default function Profile() {
 
   return (
     <>
-       <nav className="nav">
+   
+       <nav>
           <img src="logof.png" alt="" />
           <p><a href="http://localhost:3000/quiz-algorithm">Quiz</a></p>
           <p><a href="http://localhost:3000/">Login</a></p>
@@ -99,6 +100,7 @@ export default function Profile() {
           </div>
         </div>
       )}
+    
     </>
   );
 }
